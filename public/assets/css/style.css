@@ -1,0 +1,734 @@
+/* FITCHECK/public/assets/css/style.css */
+
+/* Global Reset & Font Import */
+/* Bintang (*) adalah universal selector, mengatur margin dan padding ke 0 untuk semua elemen */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Membuat padding dan border termasuk dalam total lebar/tinggi elemen */
+}
+
+/* Styling untuk body (seluruh halaman) */
+body {
+  font-family: "Poppins", sans-serif; /* Menggunakan font Poppins dari Google Fonts */
+  background: linear-gradient(
+    135deg,
+    #8e2de2,
+    #4a00e0
+  ); /* Gradien ungu yang lebih dalam dari kiri bawah ke kanan atas */
+  min-height: 100vh; /* Memastikan body setidaknya setinggi viewport */
+  display: flex; /* Menggunakan Flexbox untuk tata letak */
+  justify-content: center; /* Memusatkan konten secara horizontal */
+  align-items: flex-start; /* Memulai konten dari atas secara vertikal */
+  padding: 30px 0; /* Padding vertikal di atas dan bawah */
+  color: #333; /* Warna teks default untuk elemen di body */
+  overflow-x: hidden; /* Mencegah munculnya scrollbar horizontal yang tidak diinginkan */
+}
+
+/* Styling untuk container utama yang membungkus semua konten */
+.container {
+  max-width: 1200px; /* Lebar maksimum container */
+  width: 100%; /* Memastikan container mengambil lebar penuh yang tersedia */
+  margin: 0 auto; /* Memusatkan container secara horizontal */
+  padding: 0 25px; /* Padding horizontal di kiri dan kanan */
+}
+
+/* Styling dasar untuk elemen card (digunakan untuk fitur, form, artikel, dll.) */
+.card {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.98
+  ); /* Latar belakang putih semi-transparan */
+  backdrop-filter: blur(15px); /* Efek blur pada elemen di belakang card */
+  border-radius: 25px; /* Sudut membulat */
+  padding: 2.5rem; /* Padding internal */
+  margin-bottom: 2rem; /* Jarak bawah antar card */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Bayangan lembut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus saat hover */
+}
+
+/* Efek hover untuk card */
+.card:hover {
+  transform: translateY(-8px); /* Card sedikit terangkat */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25); /* Bayangan sedikit lebih tebal */
+}
+
+/* --- Styling untuk Navbar --- */
+.navbar {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Latar belakang navbar semi-transparan */
+  backdrop-filter: blur(20px); /* Efek blur yang lebih kuat */
+  padding: 1rem 2.5rem; /* Padding internal */
+  border-radius: 50px; /* Bentuk seperti pil */
+  margin-bottom: 3rem; /* Jarak bawah dari konten */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Bayangan */
+  display: flex;
+  justify-content: space-between; /* Menyebar item ke ujung */
+  align-items: center; /* Memusatkan item secara vertikal */
+  flex-wrap: wrap; /* Mengizinkan item navbar wrap di layar kecil */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border tipis transparan */
+}
+
+.logo {
+  font-size: 1.8rem; /* Ukuran font logo */
+  font-weight: 700; /* Tebal font */
+  color: #4a00e0; /* Warna ungu gelap */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Jarak antara ikon dan teks logo */
+}
+.logo img {
+  width: 50px; /* Lebar gambar logo */
+  height: 50px; /* Tinggi gambar logo */
+  /* Styling untuk ikon di logo */
+  color: #ffc107; /* Warna emas */
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem; /* Jarak antar link navigasi */
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
+  text-decoration: none; /* Menghilangkan underline default */
+  color: #555; /* Warna teks link */
+  font-weight: 500; /* Ketebalan font */
+  font-size: 1.05rem; /* Ukuran font */
+  transition: color 0.3s ease, transform 0.2s ease; /* Transisi halus */
+  cursor: pointer; /* Mengubah kursor saat diarahkan */
+  position: relative; /* Diperlukan untuk efek underline */
+}
+
+.nav-links a:hover {
+  color: #4a00e0; /* Warna ungu gelap saat hover */
+  transform: translateY(-2px); /* Sedikit terangkat saat hover */
+}
+
+/* Efek underline saat hover pada link navigasi */
+.nav-links a::after {
+  content: ""; /* Konten kosong untuk pseudo-element */
+  position: absolute; /* Posisi absolut relatif terhadap link */
+  width: 0; /* Lebar awal 0 */
+  height: 2px; /* Tebal underline */
+  background: #4a00e0; /* Warna underline */
+  bottom: -5px; /* Posisi di bawah link */
+  left: 0; /* Mulai dari kiri */
+  transition: width 0.3s ease; /* Transisi lebar halus */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Lebar penuh saat hover */
+}
+
+/* --- Styling untuk Tombol (Buttons) --- */
+.btn {
+  background: linear-gradient(
+    45deg,
+    #667eea,
+    #764ba2
+  ); /* Gradien latar belakang */
+  color: white;
+  padding: 0.9rem 2rem; /* Padding internal */
+  border: none; /* Tanpa border */
+  border-radius: 30px; /* Sudut membulat */
+  cursor: pointer;
+  font-weight: 600; /* Ketebalan font */
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Transisi halus */
+  text-decoration: none;
+  display: inline-flex; /* Mengizinkan ikon dan teks sejajar */
+  align-items: center; /* Memusatkan vertikal ikon/teks */
+  gap: 10px; /* Jarak ikon dan teks */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
+}
+
+.btn:hover {
+  transform: translateY(-3px); /* Sedikit terangkat */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal */
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2); /* Latar belakang semi-transparan */
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Border transparan */
+  color: white;
+  box-shadow: none; /* Tanpa bayangan default */
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3); /* Sedikit lebih solid saat hover */
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+  background: linear-gradient(
+    45deg,
+    #4a00e0,
+    #8e2de2
+  ); /* Gradien ungu yang kuat */
+  box-shadow: 0 8px 25px rgba(74, 0, 224, 0.4); /* Bayangan ungu */
+}
+.primary-btn:hover {
+  box-shadow: 0 10px 30px rgba(74, 0, 224, 0.6); /* Bayangan lebih kuat saat hover */
+}
+
+/* --- Page Management (Sangat Penting untuk SPA) --- */
+.page {
+  display: none; /* Defaultnya semua halaman disembunyikan */
+  animation: fadeIn 0.6s ease-out forwards; /* Animasi fadeIn lebih halus dan tetap di posisi akhir */
+  opacity: 0; /* Mulai dari tidak terlihat */
+  transform: translateY(20px); /* Mulai sedikit di bawah */
+}
+
+.page.active {
+  display: block; /* Halaman yang memiliki kelas 'active' akan ditampilkan */
+  opacity: 1; /* Akhir terlihat */
+  transform: translateY(0); /* Akhir di posisi normal */
+}
+
+/* Keyframes untuk animasi fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Hero Section (Halaman Beranda) --- */
+.hero {
+  text-align: center;
+  color: white;
+  padding: 6rem 0; /* Padding vertikal lebih besar */
+}
+
+.hero h1 {
+  font-size: 4rem; /* Ukuran font lebih besar */
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Bayangan teks */
+  line-height: 1.2; /* Tinggi baris */
+}
+/* Styling untuk teks highlight di judul hero */
+.hero .highlight-text {
+  background: linear-gradient(45deg, #ffd700, #ff8c00); /* Gradien highlight */
+  -webkit-background-clip: text; /* Untuk WebKit (Chrome, Safari, Edge lama) */
+  -webkit-text-fill-color: transparent; /* Untuk WebKit */
+
+  /* --- TAMBAHKAN INI UNTUK KOMPATIBILITAS LEBIH LUAS --- */
+  background-clip: text; /* Versi standar */
+  color: transparent; /* Versi standar pengganti -webkit-text-fill-color */
+}
+
+.hero p {
+  font-size: 1.4rem; /* Ukuran font lebih besar */
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  max-width: 800px; /* Lebar maksimum paragraf */
+  margin-left: auto;
+  margin-right: auto; /* Memusatkan paragraf */
+  line-height: 1.6;
+}
+
+/* --- Feature Cards (Deteksi, Rekomendasi, Pantau) --- */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  ); /* Kolom responsif, min lebar 320px */
+  gap: 2.5rem; /* Jarak antar card */
+  margin-top: 3rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 3rem 2rem; /* Padding lebih banyak */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+}
+
+.feature-card .icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    45deg,
+    #ffc107,
+    #ff8c00
+  ); /* Warna ikon yang menonjol (emas/oranye) */
+  border-radius: 50%; /* Bentuk lingkaran */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem; /* Memusatkan lingkaran dan jarak bawah */
+  font-size: 2.5rem; /* Ukuran ikon */
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4); /* Bayangan ikon */
+  transition: all 0.3s ease;
+}
+/* Efek hover untuk lingkaran ikon */
+.feature-card:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg); /* Membesar dan sedikit berputar */
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6);
+}
+
+.feature-card h3 {
+  color: #4a00e0; /* Warna ungu gelap */
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+.feature-card p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* --- Judul Bagian (Section Titles) --- */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #4a00e0; /* Warna ungu gelap */
+  margin-bottom: 3rem; /* Jarak bawah */
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* Judul artikel khusus (di halaman beranda, di atas background gelap) */
+.article-section .section-title {
+  color: #4a00e0; /* UBAH INI MENJADI WARNA UNGU/BIRU YANG KONSISTEN */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Kembalikan shadow agar menonjol */
+}
+
+/* --- Forms (Login, Register, Check BMI) --- */
+/* Styling umum untuk container form */
+.auth-form-container,
+.form-card {
+  max-width: 500px; /* Lebar maksimum form */
+  margin: 3rem auto; /* Memusatkan form */
+  padding: 3rem 2.5rem; /* Padding internal */
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+.auth-form-container h2,
+.form-card h2 {
+  color: #4a00e0;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.8rem; /* Jarak antar grup form */
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #444;
+  font-size: 1.05rem;
+}
+.form-group .icon-input {
+  /* Styling ikon di dalam label form */
+  color: #8e2de2; /* Warna ungu */
+  margin-right: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.9rem 1.2rem; /* Padding internal */
+  border: 2px solid #ddd; /* Border abu-abu terang */
+  border-radius: 12px; /* Sudut membulat */
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+  background-color: #fcfcfc; /* Latar belakang input sedikit abu-abu */
+}
+
+/* Efek fokus pada input form */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none; /* Menghilangkan outline default browser */
+  border-color: #8e2de2; /* Border fokus warna ungu */
+  box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.2); /* Efek glow ungu */
+}
+
+/* Link alternatif (misal "Belum punya akun?") */
+.auth-alt-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #666;
+}
+.auth-alt-link a {
+  color: #4a00e0; /* Warna link ungu */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.auth-alt-link a:hover {
+  color: #8e2de2;
+  text-decoration: underline;
+}
+
+/* --- Results Display --- */
+.result-section {
+  margin-top: 3rem;
+}
+.result-card {
+  background: linear-gradient(
+    135deg,
+    #4facfe,
+    #00f2fe
+  ); /* Gradien biru cerah */
+  color: white;
+  padding: 3rem;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 242, 254, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.result-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(0, 242, 254, 0.4);
+}
+
+.result-card h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.bmi-value {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.bmi-category {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.recommendations {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.15
+  ); /* Background rekomendasi lebih transparan */
+  border-radius: 18px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border transparan */
+}
+.recommendations h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.recommendations p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* --- History List --- */
+.history-card {
+  background: rgba(255, 255, 255, 0.98);
+}
+.history-card .section-title {
+  color: #4a00e0;
+}
+
+.history-item {
+  background: rgba(
+    142,
+    45,
+    226,
+    0.1
+  ); /* Background item riwayat ungu transparan */
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  border: 1px solid rgba(142, 45, 226, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+.history-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(142, 45, 226, 0.15);
+}
+
+.history-item strong {
+  color: #4a00e0;
+  font-size: 1.15rem;
+}
+.history-item small {
+  color: #666;
+  display: block;
+  margin-top: 5px;
+  font-size: 0.95rem;
+}
+.history-item small strong {
+  /* Untuk kategori BMI di riwayat */
+  color: #8e2de2;
+}
+
+/* Pesan jika riwayat kosong */
+.empty-state {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 3rem 0;
+  font-size: 1.2rem;
+}
+
+/* --- Dashboard Grid (untuk Artikel Kesehatan) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.article-card {
+  background: linear-gradient(
+    135deg,
+    #ff9a9e,
+    #fad0c4
+  ); /* Gradien pink/oranye lembut */
+  color: white;
+  padding: 2.5rem;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(255, 154, 158, 0.3);
+}
+
+.article-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.article-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.article-card p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* --- Profile Section --- */
+.profile-card {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 3rem;
+  border-radius: 25px;
+  max-width: 600px;
+  margin: 3rem auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+.profile-card h2 {
+  color: #4a00e0;
+  font-size: 2rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 4rem;
+  color: white;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+.profile-header h2 {
+  font-size: 2.2rem;
+  color: #4a00e0;
+  margin-bottom: 0.5rem;
+}
+.profile-header p {
+  font-size: 1.1rem;
+  color: #777;
+}
+
+/* --- Utility Classes --- */
+.hidden {
+  display: none;
+}
+
+/* --- Responsive Design (Media Queries) --- */
+/* Untuk layar dengan lebar maksimum 992px (misal: tablet besar) */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+  .features-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Untuk layar dengan lebar maksimum 768px (misal: tablet) */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 0;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  .navbar {
+    flex-direction: column; /* Item navbar menumpuk vertikal */
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 30px;
+    margin-bottom: 2.5rem;
+  }
+  .nav-links {
+    flex-direction: column; /* Link navigasi menumpuk vertikal */
+    gap: 1rem;
+  }
+  .nav-links a {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .hero {
+    padding: 4rem 0;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .card {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  .feature-card .icon-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  .feature-card h3 {
+    font-size: 1.5rem;
+  }
+  .feature-card p {
+    font-size: 1rem;
+  }
+  .auth-form-container,
+  .form-card,
+  .profile-card {
+    padding: 2.5rem 1.5rem;
+    margin: 2rem auto;
+  }
+  .auth-form-container h2,
+  .form-card h2,
+  .profile-card h2 {
+    font-size: 1.8rem;
+  }
+  .form-group label {
+    font-size: 1rem;
+  }
+  .form-group input,
+  .form-group select {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+  .result-card {
+    padding: 2.5rem;
+  }
+  .bmi-value {
+    font-size: 3.5rem;
+  }
+  .bmi-category {
+    font-size: 1.6rem;
+  }
+  .recommendations h4 {
+    font-size: 1.2rem;
+  }
+  .recommendations p {
+    font-size: 1rem;
+  }
+  .history-item {
+    flex-direction: column; /* Item riwayat menumpuk vertikal */
+    align-items: flex-start; /* Sejajar kiri */
+    padding: 1rem;
+    text-align: left;
+  }
+  .history-item div:last-child {
+    /* Penyesuaian untuk teks rekomendasi di mobile */
+    text-align: left !important;
+    margin-top: 10px;
+    max-width: 100%;
+  }
+  .history-item strong {
+    font-size: 1.05rem;
+  }
+  .history-item small {
+    font-size: 0.9rem;
+  }
+}
+
+/* Untuk layar dengan lebar maksimum 576px (misal: smartphone) */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+}

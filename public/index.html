@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit Check - Aplikasi Deteksi Berat Badan Ideal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="logo_fit_check" />
+          <span>Fit Check</span>
+        </div>
+        <div class="nav-links">
+          <a onclick="showPage('home')">Beranda</a>
+          <a onclick="showPage('check')" id="checkLink">Cek Berat Badan</a>
+          <a onclick="showPage('history')" id="historyLink" class="hidden"
+            >Riwayat</a
+          >
+          <a onclick="showPage('profile')" id="profileLink" class="hidden"
+            >Profil</a
+          >
+          <a
+            onclick="showPage('login')"
+            id="loginLink"
+            class="btn btn-secondary"
+            >Masuk</a
+          >
+          <a onclick="logout()" id="logoutLink" class="btn btn-secondary hidden"
+            >Keluar</a
+          >
+        </div>
+      </nav>
+
+      <div id="home" class="page active">
+        <div class="hero">
+          <h1>
+            Selamat Datang di <span class="highlight-text">Fit Check</span>
+          </h1>
+          <p>
+            Aplikasi pintar untuk mengecek berat badan ideal dan mendapatkan
+            rekomendasi aktivitas kesehatan Anda.
+          </p>
+          <button class="btn primary-btn" onclick="showPage('check')">
+            Mulai Cek Sekarang <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="features-section">
+          <div class="card feature-card">
+            <div class="icon-circle"><i class="fas fa-crosshairs"></i></div>
+            <h3>Deteksi Akurat</h3>
+            <p>
+              Menggunakan AI untuk mendeteksi kategori berat badan Anda dengan
+              akurat berdasarkan data tinggi, berat, umur, dan jenis kelamin.
+            </p>
+          </div>
+          <div class="card feature-card">
+            <div class="icon-circle"><i class="fas fa-running"></i></div>
+            <h3>Rekomendasi Aktivitas</h3>
+            <p>
+              Dapatkan rekomendasi aktivitas fisik yang sesuai dengan kondisi
+              dan tujuan kesehatan Anda.
+            </p>
+          </div>
+          <div class="card feature-card">
+            <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+            <h3>Pantau Progres</h3>
+            <p>
+              Simpan riwayat pemeriksaan untuk memantau perkembangan kesehatan
+              Anda dari waktu ke waktu.
+            </p>
+          </div>
+        </div>
+
+        <div class="card article-section">
+          <h2 class="section-title">Artikel Kesehatan</h2>
+          <div class="dashboard-grid">
+            <div
+              class="stat-card article-card"
+              onclick="window.open('https://www.halodoc.com/artikel/pola-hidup-sehat-untuk-menjaga-berat-badan-ideal?srsltid=AfmBOopy_2Pc7EYGLsIqlqCgeGZPCYYI7UIJDZHQgGdXXYVkWvKUQmvD', '_blank');"
+            >
+              <i class="fas fa-utensils article-icon"></i>
+              <h3>Tips Menjaga Berat Badan Ideal</h3>
+              <p>
+                Pola makan seimbang dan olahraga teratur adalah kunci utama
+                menjaga berat badan ideal. Baca artikel selengkapnya di
+                <a
+                  href="https://www.halodoc.com/artikel/pola-hidup-sehat-untuk-menjaga-berat-badan-ideal?srsltid=AfmBOopy_2Pc7EYGLsIqlqCgeGZPCYYI7UIJDZHQgGdXXYVkWvKUQmvD"
+                  target="_blank"
+                  style="
+                    color: #000;
+                    text-decoration: underline;
+                    font-weight: 600;
+                  "
+                  >Halodoc</a
+                >
+              </p>
+            </div>
+
+            <div
+              class="stat-card article-card"
+              onclick="window.open('https://www.mitrakeluarga.com/artikel/berat-badan-ideal', '_blank');"
+            >
+              <i class="fas fa-balance-scale article-icon"></i>
+              <h3>Pentingnya BMI</h3>
+              <p>
+                Body Mass Index membantu mengetahui apakah berat badan Anda
+                proporsional dengan tinggi badan. Dapatkan informasi lebih
+                lanjut di
+                <a
+                  href="https://www.mitrakeluarga.com/artikel/berat-badan-ideal"
+                  target="_blank"
+                  style="
+                    color: #000;
+                    text-decoration: underline;
+                    font-weight: 600;
+                  "
+                  >Mitra Keluarga</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="login" class="page">
+        <div class="auth-form-container">
+          <h2>Masuk ke Akun Anda</h2>
+          <form onsubmit="login(event)">
+            <div class="form-group">
+              <label for="loginEmail"
+                ><i class="fas fa-envelope icon-input"></i> Email</label
+              >
+              <input type="email" id="loginEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword"
+                ><i class="fas fa-lock icon-input"></i> Password</label
+              >
+              <input type="password" id="loginPassword" required />
+            </div>
+            <button type="submit" class="btn primary-btn" style="width: 100%">
+              Masuk <i class="fas fa-sign-in-alt"></i>
+            </button>
+          </form>
+          <p class="auth-alt-link">
+            Belum punya akun?
+            <a href="#" onclick="showPage('register')">Daftar</a>
+          </p>
+        </div>
+      </div>
+
+      <div id="register" class="page">
+        <div class="auth-form-container">
+          <h2>Daftar Akun Baru</h2>
+          <form onsubmit="register(event)">
+            <div class="form-group">
+              <label for="registerName"
+                ><i class="fas fa-user icon-input"></i> Nama Lengkap</label
+              >
+              <input type="text" id="registerName" required />
+            </div>
+            <div class="form-group">
+              <label for="registerEmail"
+                ><i class="fas fa-envelope icon-input"></i> Email</label
+              >
+              <input type="email" id="registerEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword"
+                ><i class="fas fa-lock icon-input"></i> Password</label
+              >
+              <input type="password" id="registerPassword" required />
+            </div>
+            <div class="form-group">
+              <label for="registerAge"
+                ><i class="fas fa-calendar-alt icon-input"></i> Umur</label
+              >
+              <input
+                type="number"
+                id="registerAge"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerGender"
+                ><i class="fas fa-venus-mars icon-input"></i> Jenis
+                Kelamin</label
+              >
+              <select id="registerGender" required>
+                <option value="">Pilih</option>
+                <option value="male">Laki-laki</option>
+                <option value="female">Perempuan</option>
+              </select>
+            </div>
+            <button type="submit" class="btn primary-btn" style="width: 100%">
+              Daftar <i class="fas fa-user-plus"></i>
+            </button>
+          </form>
+          <p class="auth-alt-link">
+            Sudah punya akun? <a href="#" onclick="showPage('login')">Masuk</a>
+          </p>
+        </div>
+      </div>
+
+      <div id="check" class="page">
+        <div class="card form-card">
+          <h2 class="section-title">Cek Berat Badan Ideal</h2>
+          <form onsubmit="checkBMI(event)">
+            <div class="form-group">
+              <label for="checkName"
+                ><i class="fas fa-user icon-input"></i> Nama</label
+              >
+              <input type="text" id="checkName" required />
+            </div>
+            <div class="form-group">
+              <label for="checkAge"
+                ><i class="fas fa-calendar-alt icon-input"></i> Umur</label
+              >
+              <input type="number" id="checkAge" min="1" max="120" required />
+            </div>
+            <div class="form-group">
+              <label for="checkWeight"
+                ><i class="fas fa-weight-hanging icon-input"></i> Berat Badan
+                (kg)</label
+              >
+              <input
+                type="number"
+                id="checkWeight"
+                step="0.1"
+                min="1"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="checkHeight"
+                ><i class="fas fa-ruler-vertical icon-input"></i> Tinggi Badan
+                (cm)</label
+              >
+              <input
+                type="number"
+                id="checkHeight"
+                min="50"
+                max="250"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="checkGender"
+                ><i class="fas fa-venus-mars icon-input"></i> Jenis
+                Kelamin</label
+              >
+              <select id="checkGender" required>
+                <option value="">Pilih</option>
+                <option value="male">Laki-laki</option>
+                <option value="female">Perempuan</option>
+              </select>
+            </div>
+            <button type="submit" class="btn primary-btn" style="width: 100%">
+              Analisis <i class="fas fa-calculator"></i>
+            </button>
+          </form>
+        </div>
+
+        <div id="results" class="result-section" style="display: none">
+          <div class="result-card">
+            <h3>Hasil Analisis Anda</h3>
+            <div class="bmi-value" id="bmiValue"></div>
+            <div class="bmi-category" id="bmiCategory"></div>
+            <div class="recommendations">
+              <h4>Rekomendasi Aktivitas:</h4>
+              <p id="exerciseRecommendation"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="history" class="page">
+        <div class="card history-card">
+          <h2 class="section-title">Riwayat Pemeriksaan</h2>
+          <div id="historyList">
+            <p class="empty-state">Belum ada riwayat pemeriksaan</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="profile" class="page">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar">👤</div>
+            <h2 id="profileName">Nama User</h2>
+            <p id="profileEmail">email@example.com</p>
+          </div>
+          <div class="form-group">
+            <label for="profileNameInput"
+              ><i class="fas fa-user icon-input"></i> Nama Lengkap</label
+            >
+            <input type="text" id="profileNameInput" />
+          </div>
+          <div class="form-group">
+            <label for="profileAgeInput"
+              ><i class="fas fa-calendar-alt icon-input"></i> Umur</label
+            >
+            <input type="number" id="profileAgeInput" min="1" max="120" />
+          </div>
+          <div class="form-group">
+            <label for="profileGenderInput"
+              ><i class="fas fa-venus-mars icon-input"></i> Jenis Kelamin</label
+            >
+            <select id="profileGenderInput">
+              <option value="male">Laki-laki</option>
+              <option value="female">Perempuan</option>
+            </select>
+          </div>
+          <button
+            class="btn primary-btn"
+            onclick="updateProfile()"
+            style="width: 100%"
+          >
+            Update Profil <i class="fas fa-save"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
