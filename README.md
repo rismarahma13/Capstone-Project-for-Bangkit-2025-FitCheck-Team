@@ -2,7 +2,6 @@ Proyek kami merupakan sebuah aplikasi web yang bertujuan untuk mendeteksi berat 
 
 ID Tim: CC25-CF037
 Anggota Tim:
-
 (ML) MC171D55X0647 - Nadila Agustiani Farhan- STMIK Mardira Indonesia - Aktif
 (FEBE) FC171D5Y0649- Tisna Rizqiana - STMIK Mardira Indonesia - Aktif
 (FEBE) FC171D5X0650- Risma Rahmatul Ummah - STMIK Mardira Indonesia - Aktif
