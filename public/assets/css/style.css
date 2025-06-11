@@ -83,13 +83,9 @@ body {
   align-items: center;
   gap: 12px; /* Jarak antara ikon dan teks logo */
 }
-<<<<<<< HEAD
 .logo img {
   width: 50px; /* Lebar gambar logo */
   height: 50px; /* Tinggi gambar logo */
-=======
-.logo i {
->>>>>>> 14af0314ac94cf8fe9fa5c62e13a3ad7dd3223a9
   /* Styling untuk ikon di logo */
   color: #ffc107; /* Warna emas */
   font-size: 1.5rem;
@@ -310,13 +306,8 @@ body {
 }
 /* Judul artikel khusus (di halaman beranda, di atas background gelap) */
 .article-section .section-title {
-<<<<<<< HEAD
   color: #4a00e0; /* UBAH INI MENJADI WARNA UNGU/BIRU YANG KONSISTEN */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Kembalikan shadow agar menonjol */
-=======
-  color: #fff; /* Warna putih */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
->>>>>>> 14af0314ac94cf8fe9fa5c62e13a3ad7dd3223a9
 }
 
 /* --- Forms (Login, Register, Check BMI) --- */
