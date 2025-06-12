@@ -61,6 +61,7 @@ Projek ini dikembangkan selama 1 bulan, yang mana memadukan model Machine Learni
 ## 📬 Kontak
 Untuk pertanyaan dan kolaborasi, silakan hubungi anggota tim melalui GitHub masing-masing atau melalui LinkedIn.
 | Nama | LinkedIn |
+| ---- | -------- |
 | Nadila Agustiani Farhan | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nadila-agustiani-farhan-4888612aa/) |
 | Tisna Rizqiana | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tisna-rizqiana-97828b2b4/) |
 | Risma Rahmatul Ummah | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/risma-rahmatul-ummah-885a4030b/) |
