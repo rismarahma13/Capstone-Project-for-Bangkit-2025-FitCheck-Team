@@ -1,27 +1,29 @@
-// server/config/database.js
-const { Sequelize } = require("sequelize");
-// const config = require('./config.json'); // Hapus baris ini karena tidak ada config.json
+// config/database.js
+const { Sequelize } = require("sequelize"); // Mengimpor kelas Sequelize
 
-const env = process.env.NODE_ENV || "development"; // Dapatkan environment (default 'development')
-let dbConfig; // Variabel untuk menyimpan konfigurasi DB yang akan digunakan
+// Menentukan environment (lingkungan) aplikasi. Jika tidak diatur, defaultnya adalah 'development'.
+const env = process.env.NODE_ENV || "development";
 
-// Konfigurasi untuk lingkungan development (lokal) dan production (Render.com)
-// Kredensial database akan selalu diambil dari Environment Variables
+let dbConfig; // Variabel untuk menyimpan konfigurasi database yang akan digunakan
+
+// Konfigurasi database akan selalu diambil dari Environment Variables (process.env).
+// Ini berlaku baik untuk lingkungan development (lokal) maupun production (Render.com).
 dbConfig = {
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  host: process.env.DB_HOST,
-  dialect: "mysql", // Dialek database yang digunakan
-  port: process.env.DB_PORT || 3306, // Port database (ambil dari env atau default 3306)
+  username: process.env.DB_USER, // Nama pengguna database, diambil dari variabel lingkungan DB_USER
+  password: process.env.DB_PASSWORD, // Kata sandi database, diambil dari variabel lingkungan DB_PASSWORD
+  database: process.env.DB_NAME, // Nama database, diambil dari variabel lingkungan DB_NAME
+  host: process.env.DB_HOST, // Host database, diambil dari variabel lingkungan DB_HOST
+  dialect: "mysql", // Dialek database yang digunakan adalah MySQL
+  port: process.env.DB_PORT || 3306, // Port database, diambil dari DB_PORT atau default 3306
   define: {
-    timestamps: true, // Otomatis menambahkan createdAt dan updatedAt
-    underscored: true, // Menggunakan snake_case untuk nama kolom (misal: created_at)
+    timestamps: true, // Sequelize secara otomatis menambahkan kolom createdAt dan updatedAt
+    underscored: true, // Menggunakan gaya penamaan snake_case untuk kolom (misal: created_at)
   },
-  logging: env === "development", // Aktifkan logging SQL hanya di development
+  // Mengaktifkan logging SQL (menampilkan query di konsol) hanya saat di lingkungan development
+  logging: env === "development",
 };
 
-// Inisialisasi instance Sequelize
+// Membuat instance Sequelize dengan konfigurasi yang sudah ditentukan
 const sequelize = new Sequelize(
   dbConfig.database,
   dbConfig.username,
@@ -32,27 +34,27 @@ const sequelize = new Sequelize(
     port: dbConfig.port,
     define: dbConfig.define,
     logging: dbConfig.logging,
-    // Opsi tambahan untuk koneksi, jika diperlukan (misalnya SSL untuk beberapa provider hosting)
-    // dialectOptions: {
+    // dialectOptions: { // Opsi tambahan untuk koneksi, jika diperlukan (misalnya SSL untuk beberapa penyedia hosting)
     //   ssl: {
     //     require: true,
-    //     rejectUnauthorized: false // Gunakan ini HANYA jika Anda tahu apa yang Anda lakukan dan diuji
+    //     rejectUnauthorized: false
     //   }
     // }
   }
 );
 
-// Fungsi untuk melakukan autentikasi koneksi ke database
+// Fungsi asinkron untuk melakukan autentikasi (tes koneksi) ke database
 const connectDB = async () => {
   try {
-    await sequelize.authenticate(); // Coba koneksi
-    console.log("MySQL Connected successfully"); // Pesan sukses
+    await sequelize.authenticate(); // Mencoba terhubung ke database
+    console.log("MySQL Connected successfully"); // Pesan sukses jika koneksi berhasil
   } catch (error) {
     console.error(
       `Failed to start server due to database connection error: ${error.message}`
-    );
-    process.exit(1); // Keluar dari aplikasi jika koneksi gagal
+    ); // Pesan error jika koneksi gagal
+    process.exit(1); // Menghentikan proses aplikasi jika koneksi database gagal
   }
 };
 
-module.exports = { sequelize, connectDB }; // Ekspor instance sequelize dan fungsi connectDB
+// Mengekspor instance sequelize dan fungsi connectDB agar dapat digunakan di bagian lain aplikasi
+module.exports = { sequelize, connectDB };
