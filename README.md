@@ -16,7 +16,11 @@ Proyek ini dibangun melalui kolaborasi lintas disiplin antara alur belajar Machi
 
 # 🧠 Tentang Aplikasi
 FitCheck hadir untuk menjawab kebutuhan masyarakat akan informasi status berat badan yang akurat dan ilmiah, bukan berdasarkan persepsi subjektif atau standar kecantikan semata.
-[Gambar]
+![Gambar](https://drive.google.com/file/d/1_biliZ-zNats20K2R5nTSo6GDlg5i3xc/view)
+
+### Deployment Aplikasi
+Pada tahap deployment, kami menggunakan Netlify untuk hosting aplikasi fitcheck sehingga dapat diakses dengan baik
+**Link Aplikasi** : [Kunjungi FitCheck](https://animated-jelly-395c8b.netlify.app/)
 
 ## Aplikasi ini memungkinkan pengguna untuk:
 - Menghitung Indeks Massa Tubuh (BMI)
