@@ -1,6 +1,6 @@
 # 📌 Capstone Project – FitCheck: Aplikasi Web Pemeriksa Berat Badan Ideal
 
-FitCheck adalah aplikasi web interaktif yang membantu pengguna memeriksa status berat badan ideal (BMI) dan memberikan rekomendasi aktivitas berdasarkan input seperti berat badan, tinggi badan, usia, dan jenis kelamin. Proyek ini merupakan bagian dari Projek Akhir (Capstone Project) dalam program Coding Camp powered by DBS Foundation.
+Fitcheck merupakan aplikasi web interaktif yang membantu pengguna memeriksa status berat badan ideal (BMI) dan memberikan rekomendasi aktivitas berdasarkan input seperti berat badan, tinggi badan, usia, dan jenis kelamin. Proyek ini merupakan bagian dari Projek Akhir (Capstone Project) dalam program Coding Camp powered by DBS Foundation.
 
 ![beranda](img/beranda.png)
 
